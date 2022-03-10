@@ -1,0 +1,44 @@
+﻿@model TicketShop.Domain.DomainModels.Order
+
+<div class="container">
+    <div class="bg-info text-white p-5">
+        <h1>@Model.ApplicationUser.Email</h1>
+    </div>
+    <hr class="p-3" />
+    <div>
+        <a class="btn btn-link" asp-controller="Order" asp-action="Index">
+            Back to order list
+        </a>
+    </div>
+
+    @for (int i = 0; i < Model.TicketsInOrder.Count(); i++)
+    {
+        var item = Model.TicketsInOrder.ElementAt(i).ticket;
+        var quantity = Model.TicketsInOrder.ElementAt(i).Quantity;
+
+        if (i % 3 == 0)
+        {
+            @:<div class="row">
+            }
+
+            <div class="col-md-3 m-4">
+                <div class="card" style="width: 18rem; height: 30rem;">
+                    <img class="card-img-top" style="max-width: 300px; max-height:200px" src="@item.MovieImage" alt="Movie poster">
+                    <div class="card-body">
+                        <h3>Ticket for movie: @item.MovieTitle</h3>
+                        <p>Date of projection: @item.Date</p>
+                        <p>Ticket price: @item.TicketPrice</p>
+                        <p>Quantity: @quantity</p>
+                    </div>
+
+                </div>
+            </div>
+
+            if (i % 3 == 2)
+            {
+            @:</div>
+        }
+
+    }
+
+</div>

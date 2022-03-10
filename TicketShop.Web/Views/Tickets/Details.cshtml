@@ -1,0 +1,64 @@
+﻿@model TicketShop.Domain.DomainModels.Ticket
+
+@{
+    ViewData["Title"] = "Details for Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="bg-info text-white p-5">
+    <h1>Details for ticket for: @Model.MovieTitle</h1>
+</div>
+<hr class="p-3">
+<div>
+    <h4>Ticket details: </h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MovieTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieImage)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.MovieImage" style="max-width:200px" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieGenre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MovieGenre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TicketPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TicketPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RowNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RowNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeatNumber)
+        </dd>
+    </dl>
+
+    <form asp-controller="Tickets" asp-action="Edit" method="get">
+        <input name="ticketId" type="hidden" asp-for="Id" />
+        <input type="submit" value="Edit Ticket" class="btn btn-secondary" /> |
+    </form>
+    <a asp-action="Index" class="btn btn-link">Back to List</a>
+</div>
