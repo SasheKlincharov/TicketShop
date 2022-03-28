@@ -9,6 +9,6 @@ namespace TicketShop.Domain.DomainModels
         public string UserId { get; set; }
         public User ApplicationUser { get; set; }
         public DateTime DateOfOrder { get; set; }
-        public IEnumerable<TicketInOrder> TicketsInOrder { get; set; }
+        public IEnumerable<TicketInOrder> VideoGamesInOrder { get; set; }
     }
 }
